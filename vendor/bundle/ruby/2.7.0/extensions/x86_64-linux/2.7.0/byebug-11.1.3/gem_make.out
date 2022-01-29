@@ -1,0 +1,19 @@
+current directory: /home/katherina/Documents/sales_tax_calculator/sales_taxes_calculator/vendor/bundle/ruby/2.7.0/gems/byebug-11.1.3/ext/byebug
+/home/katherina/.rbenv/versions/2.7.0/bin/ruby -I /home/katherina/.rbenv/versions/2.7.0/lib/ruby/2.7.0 -r ./siteconf20220129-16873-1do1q9z.rb extconf.rb
+creating Makefile
+
+current directory: /home/katherina/Documents/sales_tax_calculator/sales_taxes_calculator/vendor/bundle/ruby/2.7.0/gems/byebug-11.1.3/ext/byebug
+make "DESTDIR=" clean
+
+current directory: /home/katherina/Documents/sales_tax_calculator/sales_taxes_calculator/vendor/bundle/ruby/2.7.0/gems/byebug-11.1.3/ext/byebug
+make "DESTDIR="
+compiling breakpoint.c
+compiling byebug.c
+compiling context.c
+compiling locker.c
+compiling threads.c
+linking shared-object byebug/byebug.so
+
+current directory: /home/katherina/Documents/sales_tax_calculator/sales_taxes_calculator/vendor/bundle/ruby/2.7.0/gems/byebug-11.1.3/ext/byebug
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 byebug.so ./.gem.20220129-16873-ey2q6s/byebug

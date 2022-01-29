@@ -1,0 +1,31 @@
+<% if !flash[:notice].blank? %>
+   <div class = "alert alert-info">
+      <%= flash[:notice] %>
+   </div>
+<% end %>
+
+<br>
+
+<%= link_to "Select Purchase file", new_purchase_path, class: "btn btn-primary" %>
+
+<br><br>
+<table class = "table table-bordered table-striped">
+	<thead>
+		<tr>
+			<th>Calculate Taxes</th>
+			<th>Download Purchase File</th>
+			<th>Download Sales Taxes File</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @purchases.each do |purchase| %>	
+		<tr>
+			<td><%= purchase.attachment %></td>
+			<td><%= link_to "Download", purchase.attachment_url %></td>
+			<td><%= link_to "Download", calculate_sales_tax_purchase_path(purchase) %></td>
+		</tr>
+		<% end %>
+	</tbody>
+
+</table>
+
