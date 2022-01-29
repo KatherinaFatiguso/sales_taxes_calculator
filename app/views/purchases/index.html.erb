@@ -12,9 +12,9 @@
 <table class = "table table-bordered table-striped">
 	<thead>
 		<tr>
-			<th>Calculate Taxes</th>
+			<th>Purchase Files</th>
 			<th>Download Purchase File</th>
-			<th>Download Sales Taxes File</th>
+			<th>Calculate and Download Sales Taxes File</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -22,7 +22,9 @@
 		<tr>
 			<td><%= purchase.attachment %></td>
 			<td><%= link_to "Download", purchase.attachment_url %></td>
-			<td><%= link_to "Download", calculate_sales_tax_purchase_path(purchase) %></td>
+			<td><%= link_to "Calculate", calculate_sales_tax_purchase_path(purchase) %>
+			<td><%= link_to "Delete",  purchase, method: :delete, confirm: "Delete this purchase file?" %></td>
+			</td>
 		</tr>
 		<% end %>
 	</tbody>
