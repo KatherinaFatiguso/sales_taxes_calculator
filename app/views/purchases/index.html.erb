@@ -18,14 +18,13 @@
 		</tr>
 	</thead>
 	<tbody>
-		<% @purchases.each do |purchase| %>	
-		<tr>
-			<td><%= purchase.attachment %></td>
-			<td><%= link_to "Download", purchase.attachment_url %></td>
-			<td><%= link_to "Calculate", calculate_sales_tax_purchase_path(purchase) %>
-			<td><%= link_to "Delete",  purchase, method: :delete, confirm: "Delete this purchase file?" %></td>
-			</td>
-		</tr>
+		<% @purchases.each do |purchase| %>
+			<tr>
+				<td><%= purchase.attachment %></td>
+				<td><%= link_to "Download", purchase.attachment_url %></td>
+				<td><%= link_to "Calculate", calculate_sales_tax_purchase_path(purchase) %></td>
+				<td><%= link_to "Delete",  purchase, method: :delete, confirm: "Delete this purchase file?" %></td>
+			</tr>
 		<% end %>
 	</tbody>
 
