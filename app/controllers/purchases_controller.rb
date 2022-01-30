@@ -43,12 +43,19 @@ class PurchasesController < ApplicationController
     end
 
     CSV.open("output.csv", "w") do |csv|
+      sales_taxes = 0.0
+      prices = 0.0
+      total = 0.0
       arr.each do |item|
         csv << [item[0], item[1], (item[2] + item[3]).round(2)]
+        sales_taxes += item[2]
+        prices += item[3]
       end
+      csv << ["Sales Taxes: ".concat((sales_taxes).round(2).to_s)]
+      csv << ["Total ".concat((sales_taxes + prices).round(2).to_s)]
     end
 
-    redirect_to purchases_path, notice: "The sales taxes file has been downloaded."
+    redirect_to purchases_path, notice: "The sales taxes has been calculated and downloaded."
   end
 
   private
