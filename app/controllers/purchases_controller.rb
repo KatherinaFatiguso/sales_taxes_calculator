@@ -30,7 +30,9 @@ class PurchasesController < ApplicationController
 
   def calculate_sales_tax
     @purchase = Purchase.find(params[:id])
-    arr = [] 
+
+    # Calculate any taxes and duty
+    arr = []
     CSV.parse(@purchase.attachment.read).each do |line|
       quantity = line[0].to_i
       product = line[1]
@@ -42,7 +44,8 @@ class PurchasesController < ApplicationController
        end
     end
 
-    CSV.open("output.csv", "w") do |csv|
+    # Writing the CSV file and download it to Downloads folder
+    csv_file = CSV.generate do |csv|
       sales_taxes = 0.0
       prices = 0.0
       total = 0.0
@@ -54,8 +57,9 @@ class PurchasesController < ApplicationController
       csv << ["Sales Taxes: ".concat((sales_taxes).round(2).to_s)]
       csv << ["Total ".concat((sales_taxes + prices).round(2).to_s)]
     end
+    File.write("../../../Downloads/output_" + Time.now.to_s + ".csv", csv_file) # Write the file to Downloads folder
 
-    redirect_to purchases_path, notice: "The sales taxes has been calculated and downloaded."
+    redirect_to purchases_path, notice: "The sales taxes has been calculated and downloaded into Downloads folder."
   end
 
   private
