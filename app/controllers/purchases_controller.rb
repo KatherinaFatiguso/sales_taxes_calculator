@@ -30,8 +30,8 @@ class PurchasesController < ApplicationController
 
   def calculate_sales_tax
     @purchase = Purchase.find(params[:id])
-    arr = []
-    CSV.foreach(@purchase) do |line| 
+    arr = [] 
+    CSV.parse(@purchase.attachment.read).each do |line|
       quantity = line[0].to_i
       product = line[1]
       price = line[2].to_f
