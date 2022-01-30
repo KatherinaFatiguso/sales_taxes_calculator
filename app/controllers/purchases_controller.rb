@@ -59,7 +59,7 @@ class PurchasesController < ApplicationController
     end
     File.write("sales_taxes_files/output_#{Time.now.to_s}.csv", csv_file) # Write the file to Downloads folder
 
-    redirect_to purchases_path, notice: "The sales taxes has been calculated and downloaded into Downloads folder."
+    redirect_to purchases_path, notice: "The sales taxes has been calculated and downloaded."
   end
 
   private
