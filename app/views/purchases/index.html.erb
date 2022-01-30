@@ -23,7 +23,7 @@
 				<td><%= purchase.attachment %></td>
 				<td><%= link_to "Download", purchase.attachment_url %></td>
 				<td><%= link_to "Calculate", calculate_sales_tax_purchase_path(purchase) %></td>
-				<td><%= link_to "Delete",  purchase, method: :delete, confirm: "Delete this purchase file?" %></td>
+				<td><%= link_to "Delete",  purchase, method: :delete, confirm: "Delete this purchase file?", target: :blank %></td>
 			</tr>
 		<% end %>
 	</tbody>
